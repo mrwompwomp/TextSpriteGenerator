@@ -1,0 +1,132 @@
+:DCS6
+"0700088009800AC00CB0089C108E21474087800F801740272047108709060604
+1->W:AxesOff
+While W=1
+	ClrDraw
+	2->W:25->A
+	StorePic 1
+	For(B,0,2
+		For([recursiven],1,18
+			Text(5B,[recursiven],sub("    u]^^2^^xuplotcross..      .plotcross+^?  +chi+ ?Ã[uplotsquare  ?^+plotcross.  .plotcross+^? [[Q  ",18B+[recursiven],1
+		End
+		RecallPic 1
+		StorePic 1
+	End
+	Pxl-On(16,7
+	Pxl-On(16,6
+	Text(~1,0,14,"Text Sprite
+	Text(~1,13,20,"GENERATOR
+	Text(25,25,"CREATE
+	Text(31,25,"HELP
+	Text(37,25,"QUIT
+	While W=2
+		Text(A,20,">
+		getKey->K
+		If max(K={25,34:Text(A,20,"   
+		A-6((K=25)-(K=34->A
+		A+18(K=25)(A=19)-18(K=34)(A=43->A
+		If K=21:Then
+			If A=37
+			DelVar KDelVar ADelVar W
+			If A=31:Then
+				ClrDraw
+				Text(0,0,"USE ARROWS TO MOVE
+				Text(6,0,"[2[n][|d]] TO TURN ON PIXEL
+				Text(12,0,"[ALPHA] TO ERASE PIXEL
+				Text(18,0,"[CLEAR] TO START OVER
+				Text(24,0,"[ENTER] WHEN FINISHED
+				Text(32,0,"THE TEXT SPRITE WILL
+				Text(38,0,"BE STORED IN Str1.
+				Text(~1,56,0,"PRESS ANY KEY
+				Repeat getKey
+				End
+				1->W
+			End
+			If A=25:Then
+				3->W:ClrDraw
+				16->A:32->B
+	End:End:End
+	While W=3
+		ZStandard:AxesOff
+		15->Xmax:~15->Xmin
+		For(K,~5,5,10
+			Line(K,~K,K,K
+			Line(K,~K,~K,~K
+		End
+		Repeat K=105
+			Pxl-Change(A,B
+			getKey->K
+			randrand
+			Pxl-Change(A,B
+			If K=34 or 2>abs(K-25:Then
+				A-((K=25)(A>16)-(K=34)(A<45)->A
+				B-((K=24)(B>32)-(K=26)(B<62->B
+			End
+			If K=21
+			Pxl-On(A,B
+			If K=31
+			Pxl-Off(A,B
+			If K=45:Then
+				For([recursiven],~4.7,4.9,0.32
+					Line([recursiven],4.9,[recursiven],~4.6,0
+				End
+		End:End
+		For(K,~5,5,10
+			Line(K,~K,K,K,0
+			Line(K,~K,~K,~K,0
+		End
+		63->A:2->W
+		"0->Str1
+		Repeat expr(Str1
+			A-1->A
+			For([recursiven],16,45
+				If pxl-Test([recursiven],A
+				"1->Str1
+		End:End
+		62-A->A
+		" ->Str1
+		For(C,0,25,5
+			For(B,32,64-A
+				Str1+sub(" .plotcrossJ+Ã­eplotsquare^1::^^os(u?]^^22^^x[xbar]Ã»[i]YÃchiX'!Q[",sum(seq(pxl-Test([recursiven]+C,B),[recursiven],16,20){16,8,4,2,1})+1,1->Str1
+		End:End
+		sub(Str1,2,length(Str1)-1->Str1
+		sub("                                 ",1,33-A
+		Ans+Ans+Ans+Ans+Ans->Str2
+		If not(inString(Str1,Str2:Then
+			sub(Str2,1,length(Str2)/5->Str2
+			While inString(Str1,Str2,length(Str1)-length(Str2
+				sub(Str1,1,length(Str1)-length(Str2->Str1
+			End
+		Else
+			sub(Str1,1,length(Str1)-length(Str2->Str1
+		End
+		If B
+		"StorePic 1:For(B,0,->Str2
+		If B
+		length(Str1)/(33-A)-1->B
+		If B:Then
+			"?
+			For([recursiven],1,1+log(B
+				sub("0123456789",iPart(10fPart(B10^(~[recursiven])))+1,1)+Ans
+			End
+			sub(Ans,1,length(Ans)-1
+			Str2+Ans+":For([recursiven],1,->Str2
+		Else
+			"For([recursiven],1,->Str2
+		End
+		"?
+		For([recursiven],1,1+log(33-A
+			sub("0123456789",iPart(10fPart((33-A)10^(~[recursiven])))+1,1)+Ans
+		End
+		sub(Ans,1,length(Ans)-1
+		If B
+		Str2+Ans+":Text(5B,[recursiven],sub("+Str1+","+Ans+"B+[recursiven],1:End:RecallPic 1:StorePic 1:End->Str2
+		If not(B
+		Str2+Ans+":Text(0,[recursiven],sub("+Str1+",[recursiven],1:End->Str2
+		ClrDraw
+		Text(~1,0,0,"RECALL Str2 IN A
+		Text(~1,12,0,"PRGM TO DISPLAY
+		Text(~1,24,0,"THE SPRITE.
+		Pause 
+		DelVar ADelVar BDelVar CDelVar [recursiven]DelVar Pic1DelVar Str1
+End:End
