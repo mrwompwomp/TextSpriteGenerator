@@ -6,13 +6,14 @@ This program makes horizontal text sprites out of drawings. When you open up the
 
 ### USING THE SPRITES
 <hr>
-To use the text sprites created by this program, simply recall Str2 in your own program. You can change the x and y coordinates of the sprite by adding a number to the text() command (simply put a + sign and a number at the correct arguments in the text() command). 
+To use the text sprites created by this program, simply recall u in your own program. "u" is a sequential variable which can be accessed by typing 2nd 7. You can change the x and y coordinates of the sprite by adding a number to the text() command (simply put a + sign and a number at the correct arguments in the text() command). 
 
 ### IMPORTANT NOTES
 <hr>
-After recalling the sprite in your program, it is very important to add the quotation marks in the sub() command, and to remove the ones left over by recalling the string. The program checks for blank pixels from right to left and from bottom to top, so to get the most speed out of your text sprite, start drawing from the top left of the square if you don't intend to use the whole square. 
+The program checks for blank pixels from right to left and from bottom to top, so to get the most speed out of your text sprite, start drawing from the top left of the square if you don't intend to use the whole square. 
+QUOT2ANS.8xp is an assembly program which stores a quote token (0x2A) to Ans. This subprogram is required.
 
 ### INSTALLATION
 <hr>
 
-Send TXTSPRTS.8xp to your TI-83 or TI-84 Plus using your favorite link software (TiLP, Ti-Connect, etc.)
+Send TXTSPRTS.8xp and QUOT2ANS.8xp to your TI-8X series calculator using your favorite link software (TiLP, Ti-Connect, etc.)
