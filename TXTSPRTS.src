@@ -1,5 +1,7 @@
 :DCS6
 "0700088009800AC00CB0089C108E21474087800F801740272047108709060604
+Asm(prgmQUOT2ANS
+Ans->Str3
 1->W:AxesOff
 While W=1
 	ClrDraw
@@ -25,7 +27,7 @@ While W=1
 		If max(K={25,34:Text(A,20,"   
 		A-6((K=25)-(K=34->A
 		A+18(K=25)(A=19)-18(K=34)(A=43->A
-		If K=21:Then
+		If K=21 or K=105:Then
 			If A=37
 			DelVar KDelVar ADelVar W
 			If A=31:Then
@@ -45,6 +47,7 @@ While W=1
 			If A=25:Then
 				3->W:ClrDraw
 				16->A:32->B
+				A->D
 	End:End:End
 	While W=3
 		ZStandard:AxesOff
@@ -63,7 +66,10 @@ While W=1
 				B-((K=24)(B>32)-(K=26)(B<62->B
 			End
 			If K=21
-			Pxl-On(A,B
+			Then
+				Pxl-On(A,B
+				max(A,D->D
+			End
 			If K=31
 			Pxl-Off(A,B
 			If K=45:Then
@@ -75,11 +81,12 @@ While W=1
 			Line(K,~K,K,K,0
 			Line(K,~K,~K,~K,0
 		End
+		Text(~1,4,5,"WORKING...
 		63->A:2->W
 		"0->Str1
 		Repeat expr(Str1
 			A-1->A
-			For([recursiven],16,45
+			For([recursiven],16,D
 				If pxl-Test([recursiven],A
 				"1->Str1
 		End:End
@@ -120,13 +127,14 @@ While W=1
 		End
 		sub(Ans,1,length(Ans)-1
 		If B
-		Str2+Ans+":Text(5B,[recursiven],sub("+Str1+","+Ans+"B+[recursiven],1:End:RecallPic 1:StorePic 1:End->Str2
+		Str2+Ans+":Text(5B,[recursiven],sub("+Str3+Str1+Str3+","+Ans+"B+[recursiven],1:End:RecallPic 1:StorePic 1:End->|u
 		If not(B
-		Str2+Ans+":Text(0,[recursiven],sub("+Str1+",[recursiven],1:End->Str2
+		Str2+Ans+":Text(0,[recursiven],sub("+Str3+Str1+Str3+",[recursiven],1:End->|u
 		ClrDraw
-		Text(~1,0,0,"RECALL Str2 IN A
-		Text(~1,12,0,"PRGM TO DISPLAY
-		Text(~1,24,0,"THE SPRITE.
+		Text(~1,0,0,"RECALL |u (2ND 7)
+		Text(~1,12,0,"IN A PRGM TO
+		Text(~1,24,0,"DRAW THE SPRITE.
 		Pause 
-		DelVar ADelVar BDelVar CDelVar [recursiven]DelVar Pic1DelVar Str1
 End:End
+ClrDraw
+ClrHome
